@@ -1,0 +1,25 @@
+.wrapper {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 30%;  /* position the top  edge of the element at the middle of the parent */
+    left: 35%;
+    border: #14efd6 solid 5px;
+    border-radius: 5%;
+}
+.screen {
+    width: 360px;
+    height: 140px;
+    margin: 15px 20px;
+    border-radius: 10px;
+    background-color: #14efd6;
+}
+.keyboard {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+    height: 100px;
+    margin: 15px 20px;
+    border-radius: 10px;
+    border: #14efd6 solid 3px;
+}
