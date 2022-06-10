@@ -8,8 +8,7 @@ const Counter = () => {
 
     // Функция для увелечения значения счетчика
     const changeValue = () => {
-        value++;
-        setValue(value)
+        setValue(value + 1)
     }
     // Функция для сброса счетчика
     const resetValue = () => {
