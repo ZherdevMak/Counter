@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import stl from "./Counter.module.css"
+import stl from "./CounterSet.module.css"
 import Button from "./Button/Button";
-export type CounterPropsType = {
+export type CounterSetPropsType = {
     setView:()=>void
 }
 
-const Counter = (props:CounterPropsType) => {
+const Counter = (props:CounterSetPropsType) => {
     // Объявляем локальный стейт
     let [value, setValue] = useState<number>(0)
 
@@ -18,17 +18,21 @@ const Counter = (props:CounterPropsType) => {
         setValue(0)
     }
     const set = () => {
-        props.setView()
+      props.setView()
     }
     const valueClassname = `${stl.screenValue} + ${value === 5 && stl.maxValue }` // Добавляем класс для максимального значения
     return (
         <div className={stl.wrapper}>
+
             <div className={stl.screen}>
-                <p className={valueClassname}>{value}</p>
+                <div className={stl.halfScreen}>
+                    <span className={stl.screenText}>Max value:</span><input className={stl.inputScreen} type="number"/>
+                </div>
+                <div className={stl.halfScreen}>
+                    <span className={stl.screenText}>Start value:</span><input className={stl.inputScreen} type="number"/>
+                </div>
             </div>
             <div className={stl.keyboard}>
-                <Button name={"inc"} callBack={changeValue} disabled={value === 5}/>
-                <Button name={"reset"} callBack={resetValue} disabled={value === 0}/>
                 <Button name={"set"} callBack={set} disabled={value === 5}/>
             </div>
         </div>
