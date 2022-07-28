@@ -10,6 +10,7 @@ function App() {
     let [maxValue, setMaxValue] = useState<number>(5)
     let [startValue, setStartValue] = useState<number>(0)
     const setStartValueFunction = (startValueData: number) => {
+        debugger
         setStartValue(startValueData)
         setValue(startValueData)
     }
