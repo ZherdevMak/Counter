@@ -4,7 +4,7 @@ import stl from './Button.module.css'
 export type ButtonType = {
     name: string
     callBack: () => void
-    disabled: boolean
+    disabled?: boolean
 }
 const Button = (props: ButtonType) => {
     return (
