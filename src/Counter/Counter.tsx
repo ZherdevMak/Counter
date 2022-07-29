@@ -1,16 +1,25 @@
 import React from 'react';
 import stl from "./Counter.module.css"
 import Button from "./Button/Button";
+import {useDispatch, useSelector} from "react-redux";
+import {AppStateType} from "../bll/store";
+import {incValueAC, resetValueAC} from "../bll/counterValue-reducer";
 export type CounterPropsType = {
     value:number
-    startValue:number
-    maxValue:number
     setView:()=>void
-    changeValueFunction:()=>void
-    resetValueFunction:()=>void
+
 }
 
 const Counter = (props:CounterPropsType) => {
+    const state = useSelector<AppStateType,AppStateType>(state => state)
+    const dispatch = useDispatch()
+
+    const changeValueFunction = () => {
+        dispatch(incValueAC())
+    }
+    const resetValueFunction = () => {
+        dispatch(resetValueAC(state.startValue.startValue))
+    }
     // Объявляем локальный стейт
 
     // Функция для увелечения значения счетчика
@@ -24,15 +33,15 @@ const Counter = (props:CounterPropsType) => {
     const set = () => {
         props.setView()
     }
-    const valueClassname = `${stl.screenValue} + ${props.value === props.maxValue && stl.maxValue }` // Добавляем класс для максимального значения
+    const valueClassname = `${stl.screenValue} + ${state.counterValue.value === state.maxValue.maxValue && stl.maxValue }` // Добавляем класс для максимального значения
     return (
         <div className={stl.wrapper}>
             <div className={stl.screen}>
                 <p className={valueClassname}>{props.value}</p>
             </div>
             <div className={stl.keyboard}>
-                <Button name={"inc"} callBack={props.changeValueFunction} disabled={props.value === props.maxValue}/>
-                <Button name={"reset"} callBack={props.resetValueFunction} disabled={props.value === props.startValue}/>
+                <Button name={"inc"} callBack={changeValueFunction} disabled={state.counterValue.value === state.maxValue.maxValue}/>
+                <Button name={"reset"} callBack={resetValueFunction} disabled={state.counterValue.value === state.startValue.startValue}/>
                 <Button name={"set"} callBack={set} />
             </div>
         </div>
