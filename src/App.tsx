@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import stl from './App.module.css';
 import Counter from "./Counter/Counter";
 import CounterSet from "./Counter/CounterSet";
 import {useSelector} from "react-redux";
@@ -16,11 +16,14 @@ function App() {
         setToggleView(!toggleView)
     }
     return (
-        <div className="App">
-            {toggleView
-                ? <Counter value={state.counterValue.value} setView={setView}/>
-                : <CounterSet setView={setView}/>}
+        <div >
+            <div className={stl.wrapper}>
+                {toggleView
+                    ? <Counter value={state.counterValue.value} setView={setView}/>
+                    : <CounterSet setView={setView}/>}
+            </div>
         </div>
+
     );
 }
 
