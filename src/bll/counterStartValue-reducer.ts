@@ -5,7 +5,7 @@ export type initialStateType = typeof initialState
 
 export const counterStartValueReducer = (state: initialStateType = initialState, action: setStartValueACType): initialStateType => {
     switch (action.type) {
-        case 'SET-START-VALUE':debugger
+        case 'SET-START-VALUE':
             return {...state, startValue: action.payload}
         default:
             return state;
@@ -14,7 +14,7 @@ export const counterStartValueReducer = (state: initialStateType = initialState,
 type setStartValueACType = ReturnType<typeof setStartValueAC>
 
 
-export const setStartValueAC = (startValue:number) => {
+export const setStartValueAC = (startValue: number) => {
     debugger
     return {
         type: "SET-START-VALUE",

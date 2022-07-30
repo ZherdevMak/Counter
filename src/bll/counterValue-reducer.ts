@@ -8,7 +8,6 @@ export const counterValueReducer = (state: initialStateType = initialState, acti
         case 'INC-VALUE':
             return {...state, value: state.value + 1}
         case 'RESET-VALUE':
-            debugger
             return {...state, value: action.payload}
         default:
             return state;
@@ -25,7 +24,6 @@ export const incValueAC = () => {
     } as const
 }
 export const resetValueAC = (startValue: number) => {
-    debugger
     return {
         type: "RESET-VALUE",
         payload: startValue
