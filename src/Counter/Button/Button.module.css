@@ -1,10 +1,10 @@
 .button {
-    width: 90px;
+    width: 80px;
     height: 50px;
-    margin: 20px 10px;
+    margin: 20px 0;
     border-radius: 15px;
     background-color: #14efd6;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     font-family: "Trebuchet MS";
 }
