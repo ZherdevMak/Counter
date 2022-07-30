@@ -15,7 +15,6 @@ type setStartValueACType = ReturnType<typeof setStartValueAC>
 
 
 export const setStartValueAC = (startValue: number) => {
-    debugger
     return {
         type: "SET-START-VALUE",
         payload: startValue
